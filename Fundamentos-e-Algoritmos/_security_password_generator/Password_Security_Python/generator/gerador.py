@@ -13,7 +13,7 @@ def generator(comprimento : int = 12, maiusculas : bool = True, numeros : bool =
     if especiais: caracteres += string.punctuation
     if comprimento < MIN_COMPRIMENTO: comprimento = MIN_COMPRIMENTO 
     
-    password = _generate_pass(comprimento, caracteres)
+    password : str = _generate_pass(comprimento, caracteres)
     return password
 
 def _generate_pass(comprimento, caracteres):
