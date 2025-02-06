@@ -46,7 +46,7 @@ Samuel
                                 |----> [Não] --> [Fim]
 ```
 
-```mermaid
+```markdown
 graph TD;
     A[Início] --> B[Solicitar número a ser convertido]
     B --> C[Solicitar base de origem (binário, decimal, hexadecimal, etc.)]
