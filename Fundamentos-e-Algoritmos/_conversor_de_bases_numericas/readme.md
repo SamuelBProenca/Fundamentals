@@ -1,9 +1,10 @@
 # Descrição: Conversor de bases numéricas (binário, octal, decimal e hexadecimal) em Python.
 
-## Autor: Riathery
+## Autor: Samuel
 ## Data: 04/02/2025
 
-### Referencia : https://infoenem.com.br/entenda-funcoes-pares-e-impares/
+
+fluxo de dados 
 
 ```css
 
@@ -35,3 +36,5 @@
                                 |----> [Não] --> [Fim]
 
 ```
+
+Referencia : https://infoenem.com.br/entenda-funcoes-pares-e-impares/
