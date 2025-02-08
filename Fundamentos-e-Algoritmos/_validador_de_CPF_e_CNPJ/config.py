@@ -1,0 +1,2 @@
+CPFLEN = 11
+CNPJLEN = 14
