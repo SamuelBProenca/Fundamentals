@@ -34,5 +34,5 @@ def main():
     except Exception as error:
         print(f"Ocorreu um erro inesperado: {error}. Contate um administrador.")
 
-if __name__ = "__main__":
+if __name__ == "__main__":
     main()

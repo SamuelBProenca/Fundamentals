@@ -9,7 +9,7 @@ def main():
         comprimento = getComprimento()
         maiusculas = get_boolean_inputs("Deseja que seja incluído letras maiúsculas? (s/n): ")
         numeros = get_boolean_inputs("Deseja que seja incluído números? (s/n): ")
-        especiais = get_boolean_inputs("Deseja que seja incluído caracteres especiais? (s/n): ")
+        especiais = 'get_boolean_inputs'("Deseja que seja incluído caracteres especiais? (s/n): ")
         
         generated_pass = generator(comprimento, maiusculas, numeros, especiais)
         print(f"🔑 Senha gerada: {generated_pass}")
