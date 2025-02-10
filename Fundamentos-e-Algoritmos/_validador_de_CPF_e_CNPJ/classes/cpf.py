@@ -1,22 +1,21 @@
-# Name: cpf.py
-from src.utils import _sanitize, _len_verifyer, _digits_verifyer
-CPFLEN = 11
+from src.utils_cpf import _sanitize, validate_cpf
+from src.logger import log_info, log_error
 
 class CPF:
-    def __init__(self, cpf : str) -> None:
+    def __init__(self, cpf: str):
+        self.cpf = _sanitize(cpf)
+    
+    def _cpf_validator(self) -> bool:
         """
-        Inicializa um objeto CPF, sanitizando o número informado e armazenando os dados.
-        """
-        self.__cpf = _sanitize(cpf)
-        self.valid = self._cpf_validator()
-
-    def _cpf_validator_digit(self) -> bool: 
-        """
-        Verifica se os dois últimos dígitos do CPF são válidos conforme o cálculo oficial.
+        Valida um CPF verificando se ele atende a todas as regras.
         """
         try:
-            _len_verifyer(self.__cpf) and _digits_verifyer(self.__cpf, "cpf")
+            if validate_cpf(self.cpf):  # Apenas essa chamada já basta!
+                log_info("CPF validado com sucesso")
+                return True
+            else:
+                log_error("CPF inválido")
+                return False
         except Exception as error:
-            print(f"Erro na validação do CPF: {error}")
+            log_error(f"Erro na validação do CPF: {error}")
             return False
-        

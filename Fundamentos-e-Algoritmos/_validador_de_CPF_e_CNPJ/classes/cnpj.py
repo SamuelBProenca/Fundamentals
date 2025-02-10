@@ -1,22 +1,21 @@
-from src.utils import _len_verifyer, _sanitize, _digits_verifyer
+from src.utils_cnpj import _sanitize, validate_cnpj, _calculate_digit
+from src.logger import log_info, log_error
+
 class CNPJ:
-    def __init__(self, cnpj):
-        """
-        Inicializa um objeto CNPJ, sanitizando o número e validando automaticamente.
-        """
+    def __init__(self, cnpj: str):
         self.cnpj = _sanitize(cnpj)
-        self.valid = self._cnpj_validator()
-        
+    
     def _cnpj_validator(self) -> bool:
         """
-        Valida o CNPJ verificando o tamanho e os dígitos verificadores.
+        Valida um CNPJ verificando todas as regras.
         """
         try:
-            return _len_verifyer(self.cnpj, "cnpj") and _digits_verifyer(self.cnpj, "cnpj")
-        
-
-        
+            if validate_cnpj(self.cnpj):  # Só essa verificação já basta!
+                log_info("CNPJ validado com sucesso")
+                return True
+            else:
+                log_error("CNPJ inválido")
+                return False
         except Exception as error:
-            print(f"Erro na validação do CNPJ: {error}")
+            log_error(f"Erro na validação do CNPJ: {error}")
             return False
-        
